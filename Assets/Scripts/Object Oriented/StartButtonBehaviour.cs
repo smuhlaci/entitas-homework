@@ -2,13 +2,11 @@
 
 public class StartButtonBehaviour : MonoBehaviour
 {
-    private GameEntity _entity;
-
     public void ButtonPressed()
     {
-        _entity = Contexts.sharedInstance.game.CreateEntity();
+        Contexts.sharedInstance.game.CreateEntity().isStartGame = true;;
 
-        _entity.isStartGame = true;
+         // Contexts.sharedInstance.game.CreateEntity().isStartGame = true;
         
         gameObject.SetActive(false);
     }

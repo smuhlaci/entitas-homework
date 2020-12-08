@@ -17,18 +17,18 @@ public sealed class ShootingSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.isPlayer;
+        return entity.isWeapon;
     }
 
     protected override void Execute(List<GameEntity> entities)
     {
-        foreach (var playerEntity in entities)
+        foreach (var weaponEntity in entities)
         {
-            _contexts.game.CreateBullet(playerEntity.position.x, playerEntity.position.y + 0.1F);
+            _contexts.game.CreateBullet(weaponEntity);
             
-            if (playerEntity.hasTimerTick)
+            if (weaponEntity.hasTimerTick)
             {
-                playerEntity.AddTimerPassedTime(0F);
+                weaponEntity.AddTimerPassedTime(0F);
             }
         }
     }

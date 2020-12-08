@@ -8,7 +8,6 @@
         Add(new ShootingSystem(contexts));
         Add(new MoveSystem(contexts));
         Add(new AddViewSystem(contexts));
-
         
         Add(new DestroyOldBulletsSystem(contexts));
     }

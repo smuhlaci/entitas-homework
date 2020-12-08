@@ -16,8 +16,8 @@ public sealed class MoveSystem : IExecuteSystem
     {
         foreach (var movableEntity in _movableEntities)
         {
-            movableEntity.position.x += movableEntity.speed.x * Time.deltaTime;
-            movableEntity.position.y += movableEntity.speed.y * Time.deltaTime;
+            movableEntity.position.x += movableEntity.speed.value * movableEntity.rotation.x * Time.deltaTime;
+            movableEntity.position.y += movableEntity.speed.value * movableEntity.rotation.y * Time.deltaTime;
         }
     }
 }

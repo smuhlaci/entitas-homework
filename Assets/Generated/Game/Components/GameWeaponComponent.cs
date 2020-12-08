@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly DirectionComponent directionComponent = new DirectionComponent();
+    static readonly WeaponComponent weaponComponent = new WeaponComponent();
 
-    public bool isDirection {
-        get { return HasComponent(GameComponentsLookup.Direction); }
+    public bool isWeapon {
+        get { return HasComponent(GameComponentsLookup.Weapon); }
         set {
-            if (value != isDirection) {
-                var index = GameComponentsLookup.Direction;
+            if (value != isWeapon) {
+                var index = GameComponentsLookup.Weapon;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : directionComponent;
+                            : weaponComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDirection;
+    static Entitas.IMatcher<GameEntity> _matcherWeapon;
 
-    public static Entitas.IMatcher<GameEntity> Direction {
+    public static Entitas.IMatcher<GameEntity> Weapon {
         get {
-            if (_matcherDirection == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Direction);
+            if (_matcherWeapon == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Weapon);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDirection = matcher;
+                _matcherWeapon = matcher;
             }
 
-            return _matcherDirection;
+            return _matcherWeapon;
         }
     }
 }

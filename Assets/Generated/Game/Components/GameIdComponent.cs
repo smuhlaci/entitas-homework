@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SpeedComponent speed { get { return (SpeedComponent)GetComponent(GameComponentsLookup.Speed); } }
-    public bool hasSpeed { get { return HasComponent(GameComponentsLookup.Speed); } }
+    public IdComponent id { get { return (IdComponent)GetComponent(GameComponentsLookup.Id); } }
+    public bool hasId { get { return HasComponent(GameComponentsLookup.Id); } }
 
-    public void AddSpeed(float newValue) {
-        var index = GameComponentsLookup.Speed;
-        var component = (SpeedComponent)CreateComponent(index, typeof(SpeedComponent));
+    public void AddId(int newValue) {
+        var index = GameComponentsLookup.Id;
+        var component = (IdComponent)CreateComponent(index, typeof(IdComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpeed(float newValue) {
-        var index = GameComponentsLookup.Speed;
-        var component = (SpeedComponent)CreateComponent(index, typeof(SpeedComponent));
+    public void ReplaceId(int newValue) {
+        var index = GameComponentsLookup.Id;
+        var component = (IdComponent)CreateComponent(index, typeof(IdComponent));
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveSpeed() {
-        RemoveComponent(GameComponentsLookup.Speed);
+    public void RemoveId() {
+        RemoveComponent(GameComponentsLookup.Id);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherSpeed;
+    static Entitas.IMatcher<GameEntity> _matcherId;
 
-    public static Entitas.IMatcher<GameEntity> Speed {
+    public static Entitas.IMatcher<GameEntity> Id {
         get {
-            if (_matcherSpeed == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Speed);
+            if (_matcherId == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Id);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherSpeed = matcher;
+                _matcherId = matcher;
             }
 
-            return _matcherSpeed;
+            return _matcherId;
         }
     }
 }

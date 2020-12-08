@@ -11,6 +11,7 @@ public class InitializeGameSystem : IInitializeSystem
 
     public void Initialize()
     {
-        _contexts.game.CreatePlayer(0F, -2.5F);
+        var playerEntity = _contexts.game.CreatePlayer();
+        _contexts.game.CreateWeapon(playerEntity, 90F);
     }
 }

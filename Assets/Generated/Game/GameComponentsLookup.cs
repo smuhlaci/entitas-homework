@@ -13,22 +13,25 @@ public static class GameComponentsLookup {
     public const int Damage = 2;
     public const int Destroyed = 3;
     public const int DestroyedListener = 4;
-    public const int Direction = 5;
-    public const int Gold = 6;
-    public const int GoldListener = 7;
+    public const int Gold = 5;
+    public const int GoldListener = 6;
+    public const int Id = 7;
     public const int Movable = 8;
     public const int Player = 9;
-    public const int Position = 10;
-    public const int Speed = 11;
-    public const int StartGame = 12;
-    public const int Timer = 13;
-    public const int TimerPassedTime = 14;
-    public const int TimerTick = 15;
-    public const int View = 16;
-    public const int Visibility = 17;
-    public const int VisibilityListener = 18;
+    public const int PlayerDependency = 10;
+    public const int Position = 11;
+    public const int Rotation = 12;
+    public const int Speed = 13;
+    public const int StartGame = 14;
+    public const int Timer = 15;
+    public const int TimerPassedTime = 16;
+    public const int TimerTick = 17;
+    public const int View = 18;
+    public const int Visibility = 19;
+    public const int VisibilityListener = 20;
+    public const int Weapon = 21;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "Asset",
@@ -36,12 +39,14 @@ public static class GameComponentsLookup {
         "Damage",
         "Destroyed",
         "DestroyedListener",
-        "Direction",
         "Gold",
         "GoldListener",
+        "Id",
         "Movable",
         "Player",
+        "PlayerDependency",
         "Position",
+        "Rotation",
         "Speed",
         "StartGame",
         "Timer",
@@ -49,7 +54,8 @@ public static class GameComponentsLookup {
         "TimerTick",
         "View",
         "Visibility",
-        "VisibilityListener"
+        "VisibilityListener",
+        "Weapon"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -58,12 +64,14 @@ public static class GameComponentsLookup {
         typeof(DamageComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
-        typeof(DirectionComponent),
         typeof(GoldComponent),
         typeof(GoldListenerComponent),
+        typeof(IdComponent),
         typeof(MovableComponent),
         typeof(PlayerComponent),
+        typeof(PlayerDependencyComponent),
         typeof(PositionComponent),
+        typeof(RotationComponent),
         typeof(SpeedComponent),
         typeof(StartGameComponent),
         typeof(TimerComponent),
@@ -71,6 +79,7 @@ public static class GameComponentsLookup {
         typeof(TimerTickComponent),
         typeof(ViewComponent),
         typeof(VisibilityComponent),
-        typeof(VisibilityListenerComponent)
+        typeof(VisibilityListenerComponent),
+        typeof(WeaponComponent)
     };
 }
