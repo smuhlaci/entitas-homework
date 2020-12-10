@@ -21,6 +21,11 @@ public sealed class StartGameSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute(List<GameEntity> updatedEntities)
     {
+        foreach (var updatedEntity in updatedEntities)
+        {
+            updatedEntity.Destroy();
+        }
+
         StateController.ChangeState(State.Game);
     }
 }

@@ -11,7 +11,11 @@ public class InitializeGameSystem : IInitializeSystem
 
     public void Initialize()
     {
+        _contexts.game.SetBulletSpeed(3F);
+        
         var playerEntity = _contexts.game.CreatePlayer();
-        _contexts.game.CreateWeapon(playerEntity, 90F);
+        _contexts.game.CreateWeapon(playerEntity, 0F);
+        _contexts.game.CreateWeapon(playerEntity, 45F);
+        _contexts.game.CreateWeapon(playerEntity, -45F);
     }
 }

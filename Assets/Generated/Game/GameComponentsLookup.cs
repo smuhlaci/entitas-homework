@@ -10,32 +10,34 @@ public static class GameComponentsLookup {
 
     public const int Asset = 0;
     public const int Bullet = 1;
-    public const int Damage = 2;
-    public const int Destroyed = 3;
-    public const int DestroyedListener = 4;
-    public const int Gold = 5;
-    public const int GoldListener = 6;
-    public const int Id = 7;
-    public const int Movable = 8;
-    public const int Player = 9;
-    public const int PlayerDependency = 10;
-    public const int Position = 11;
-    public const int Rotation = 12;
-    public const int Speed = 13;
-    public const int StartGame = 14;
-    public const int Timer = 15;
-    public const int TimerPassedTime = 16;
-    public const int TimerTick = 17;
-    public const int View = 18;
-    public const int Visibility = 19;
-    public const int VisibilityListener = 20;
-    public const int Weapon = 21;
+    public const int BulletSpeed = 2;
+    public const int Damage = 3;
+    public const int Destroyed = 4;
+    public const int DestroyedListener = 5;
+    public const int Gold = 6;
+    public const int GoldListener = 7;
+    public const int Id = 8;
+    public const int Movable = 9;
+    public const int Player = 10;
+    public const int PlayerDependency = 11;
+    public const int Position = 12;
+    public const int Rotation = 13;
+    public const int Speed = 14;
+    public const int StartGame = 15;
+    public const int Timer = 16;
+    public const int TimerPassedTime = 17;
+    public const int TimerTick = 18;
+    public const int View = 19;
+    public const int Visibility = 20;
+    public const int VisibilityListener = 21;
+    public const int Weapon = 22;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "Asset",
         "Bullet",
+        "BulletSpeed",
         "Damage",
         "Destroyed",
         "DestroyedListener",
@@ -61,6 +63,7 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(AssetComponent),
         typeof(BulletComponent),
+        typeof(BulletSpeedComponent),
         typeof(DamageComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),

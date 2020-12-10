@@ -1,4 +1,6 @@
-﻿public static class EntityContentExtension
+﻿using System;
+
+public static class EntityContentExtension
 {
     public static GameEntity CreatePlayer(this GameContext context)
     {
@@ -21,9 +23,8 @@
         weaponEntity.AddTimerTick(2F);
         weaponEntity.AddTimerPassedTime(0F);
 
-        var rotationX = playerEntity.rotation.x + (float)System.Math.Cos((System.Math.PI / 180) * rotationInDegrees);
-        var rotationY = playerEntity.rotation.y + (float)System.Math.Sin((System.Math.PI / 180) * rotationInDegrees); 
-        weaponEntity.AddRotation(rotationX, rotationY);
+        var weaponRotation = CalculateAddedRotation(playerEntity.rotation, rotationInDegrees);
+        weaponEntity.AddRotation(weaponRotation.x, weaponRotation.y);
         
         return weaponEntity;
     }
@@ -36,11 +37,24 @@
         bulletEntity.AddPosition(weaponEntity.position.x, weaponEntity.position.y);
         bulletEntity.AddRotation(weaponEntity.rotation.x, weaponEntity.rotation.y);
         
-        bulletEntity.AddSpeed(3F);
-        bulletEntity.AddTimerTick(300F);
+        bulletEntity.AddSpeed(context.bulletSpeed.value); //3F
+        bulletEntity.AddTimerTick(300F); //300F
         bulletEntity.AddTimerPassedTime(0F);
         bulletEntity.AddAsset("Bullet");
 
         return bulletEntity;
+    }
+
+    //TODO Can I return RotationComponent? 
+    public static (float x, float y) CalculateAddedRotation(this RotationComponent currentRotation, float addingDegree)
+    {
+        var rad = (float)(Math.PI / 180F) * addingDegree;
+        var cos = (float) Math.Cos(rad);
+        var sin = (float) Math.Sin(rad);
+        
+        var rotationX = currentRotation.x * cos - currentRotation.y * sin;
+        var rotationY = currentRotation.y * cos + currentRotation.x * sin;
+
+        return (rotationX, rotationY);
     }
 }
